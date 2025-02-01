@@ -43,4 +43,4 @@ GVAR(appsection) ctrlCommit 0;
 GVAR(app_selected) = "";
 
 // Switch to Homescreen, which is the default app
-[QGVAR(loadApp),["Homescreen",_emptyDisplay]] call CBA_fnc_localEvent;
+[_emptyDisplay, "Homescreen"] call FUNC(switchToApp);
