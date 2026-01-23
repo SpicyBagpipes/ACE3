@@ -1,6 +1,6 @@
-use crate::common::{MuzzleVelocity, Vector3, GRAVITY};
+use crate::common::{GRAVITY, MuzzleVelocity, Vector3};
 
-use super::{drag::calculate_retard, BallisticModel};
+use super::{BallisticModel, drag::calculate_retard};
 
 pub fn replicate_vanilla(
     zero_range: f64,
@@ -39,6 +39,9 @@ pub fn calculate(
     bore_height: f64,
     ballistic_model: BallisticModel,
 ) -> f64 {
+    if *muzzle_velocity <= 0.0 {
+        return 0.0;
+    }
     let mut zero_angle = 0.0f64;
     let delta_time = 1.0 / 100.0f64.max(zero_range);
 

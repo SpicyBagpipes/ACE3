@@ -55,93 +55,85 @@ class CfgWeapons {
         EGVAR(overheating,jamTypesAllowed)[] = {"Fire", "Dud"};
     };
 
-    // HELMETS
-    class gm_ge_headgear_headset_crew_base;
-    class gm_ge_headgear_headset_crew_oli: gm_ge_headgear_headset_crew_base {
-        HEARING_PROTECTION_PELTOR;
+    class gm_RocketLauncher_base;
+    class gm_mlrs_122mm_launcher_base: gm_RocketLauncher_base {
+        EGVAR(overpressure,offset) = 3;
     };
 
-    class gm_ge_headgear_sph4_base;
-    class gm_ge_headgear_sph4_oli: gm_ge_headgear_sph4_base {
-        HEARING_PROTECTION_PELTOR;
+    //Fire Protection
+    class gm_ge_ff_uniform_man_80_base;
+    class gm_ge_army_uniform_pilot_base;
+    class gm_ge_army_uniform_pilot_rolled_base;
+    class gm_ge_uniform_pilot_commando_base;
+    class gm_ge_uniform_crew_base;
+    class gm_ge_uniform_pilot_commando_rolled_base;
+    class gm_gc_uniform_pilot_80_base;
+
+    //Cold War gear has values reduced by 0.2 from modern gear
+
+    //Firefighter
+    class gm_ge_ff_uniform_man_80_orn: gm_ge_ff_uniform_man_80_base {
+        ace_fire_protection = 0.5; 
     };
 
-    class gm_pl_headgear_wz63_base;
-    class gm_pl_army_headgear_wz63_oli: gm_pl_headgear_wz63_base {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_pl_army_headgear_wz63_net_oli: gm_pl_headgear_wz63_base {
-        HEARING_PROTECTION_PELTOR;
+    //Pilot/Tanker Coveralls 80s
+    class gm_ge_army_uniform_crew_80_oli: gm_ge_uniform_crew_base {
+        ace_fire_protection = 0.3;
     };
 
-    class gm_ge_headgear_crewhat_80_base;
-    class gm_ge_headgear_crewhat_80_blk: gm_ge_headgear_crewhat_80_base {
-        HEARING_PROTECTION_PELTOR;
+    class gm_gc_civ_uniform_pilot_80_blk: gm_gc_uniform_pilot_80_base {
+        ace_fire_protection = 0.3;
+    };
+    class gm_gc_airforce_uniform_pilot_80_blu: gm_gc_uniform_pilot_80_base {
+        ace_fire_protection = 0.3;
+    };
+        class gm_pl_airforce_uniform_pilot_80_gry: gm_gc_uniform_pilot_80_base {
+        ace_fire_protection = 0.3;
     };
 
-    class gm_gc_headgear_crewhat_80_base;
-    class gm_gc_army_headgear_crewhat_80_blk: gm_gc_headgear_crewhat_80_base {
-        HEARING_PROTECTION_PELTOR;
+    //Pilot / Tanker Coveralls 90s
+    class gm_ge_uniform_pilot_commando_blk: gm_ge_uniform_pilot_commando_base{
+        ace_fire_protection = 0.5;
+    };
+    class gm_ge_uniform_pilot_commando_gry: gm_ge_uniform_pilot_commando_base{
+        ace_fire_protection = 0.5;
+    };
+    class gm_ge_uniform_pilot_commando_oli: gm_ge_uniform_pilot_commando_base{
+        ace_fire_protection = 0.5;
     };
 
-    class gm_gc_headgear_zsh3_base;
-    class gm_gc_headgear_zsh3_wht: gm_gc_headgear_zsh3_base {
-        HEARING_PROTECTION_PELTOR;
+    //rolled up sleeves reduce effectivenes of fire protection
+    class gm_ge_uniform_pilot_commando_rolled_blk: gm_ge_uniform_pilot_commando_rolled_base {
+        ace_fire_protection = 0.4;
     };
-    class gm_gc_headgear_zsh3_blu: gm_gc_headgear_zsh3_base {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_uniform_pilot_commando_rolled_gry: gm_ge_uniform_pilot_commando_rolled_base {
+        ace_fire_protection = 0.4;
     };
-    class gm_gc_headgear_zsh3_orn: gm_gc_headgear_zsh3_base {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_uniform_pilot_commando_rolled_oli: gm_ge_uniform_pilot_commando_rolled_base {
+        ace_fire_protection = 0.4;
     };
-
-    class gm_ge_headgear_beret_crew_bdx;
-    class gm_ge_headgear_beret_crew_blk;
-    class gm_ge_headgear_beret_crew_grn;
-    class gm_ge_headgear_beret_crew_red;
-    class gm_ge_headgear_beret_crew_red_antiair: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_crew_90_trp: gm_ge_uniform_crew_base {
+        ace_fire_protection = 0.5;
     };
-    class gm_ge_headgear_beret_crew_blk_antitank: gm_ge_headgear_beret_crew_blk {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_crew_90_flk: gm_ge_uniform_crew_base {
+        ace_fire_protection = 0.5;
     };
-    class gm_ge_headgear_beret_crew_blk_armor: gm_ge_headgear_beret_crew_blk {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_pol_uniform_pilot_grn: gm_ge_army_uniform_pilot_base {
+        ace_fire_protection = 0.5;
     };
-    class gm_ge_headgear_beret_crew_blk_armorrecon: gm_ge_headgear_beret_crew_blk {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_pol_uniform_pilot_rolled_grn: gm_ge_army_uniform_pilot_rolled_base {
+        ace_fire_protection = 0.4;
     };
-    class gm_ge_headgear_beret_crew_red_artillery: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_pilot_oli: gm_ge_army_uniform_pilot_base {
+        ace_fire_protection = 0.5;
     };
-    class gm_ge_headgear_beret_crew_red_engineer: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_pilot_rolled_oli: gm_ge_army_uniform_pilot_rolled_base {
+        ace_fire_protection = 0.4;
     };
-    class gm_ge_headgear_beret_crew_red_maintenance: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_pilot_sar: gm_ge_army_uniform_pilot_base {
+        ace_fire_protection = 0.5;
     };
-    class gm_ge_headgear_beret_crew_grn_mechinf: gm_ge_headgear_beret_crew_grn {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_red_militarypolice: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_red_nbc: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_red_opcom: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_bdx_paratrooper: gm_ge_headgear_beret_crew_bdx {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_blk_recon: gm_ge_headgear_beret_crew_blk {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_red_supply: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
-    };
-    class gm_ge_headgear_beret_crew_red_signals: gm_ge_headgear_beret_crew_red {
-        HEARING_PROTECTION_PELTOR;
+    class gm_ge_army_uniform_pilot_rolled_sar: gm_ge_army_uniform_pilot_rolled_base {
+        ace_fire_protection = 0.4;
     };
 };

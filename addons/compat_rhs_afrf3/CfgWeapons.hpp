@@ -4,7 +4,6 @@ class CfgWeapons {
         ACE_barrelTwist = 254.0;
         ACE_barrelLength = 111.76;
     };
-    class Pistol_Base_F;
     class rhs_weap_makarov_pm: rhs_weap_pya {
         ACE_barrelTwist = 240.03;
         ACE_barrelLength = 93.472;
@@ -88,24 +87,50 @@ class CfgWeapons {
         EGVAR(overpressure,angle) = 40;
         EGVAR(overpressure,offset) = 0.9;
     };
-
     class rhs_weap_rpg26: Launcher_Base_F {
         EGVAR(overpressure,range) = 10;
         EGVAR(overpressure,angle) = 50;
         EGVAR(overpressure,offset) = 0.65;
     };
-
     class rhs_weap_rpg18: rhs_weap_rpg26 {
         EGVAR(overpressure,angle) = 45;
         EGVAR(overpressure,offset) = 1;
     };
-
     class rhs_weap_strela;
     class rhs_weap_igla: rhs_weap_strela {
         EGVAR(overpressure,range) = 6;
         EGVAR(overpressure,angle) = 40;
         EGVAR(overpressure,damage) = 0.6;
         EGVAR(overpressure,offset) = 1.65;
+    };
+    class missiles_titan_static;
+    class rhs_Igla_AA_pod_Base: missiles_titan_static { // Soft-launched Igla missile
+        EGVAR(overpressure,range) = 6;
+        EGVAR(overpressure,angle) = 40;
+        EGVAR(overpressure,damage) = 0.6;
+        EGVAR(overpressure,offset) = 1.8;
+    };
+    class RocketPods;
+    class rhs_weap_SPG9: RocketPods {
+        EGVAR(overpressure,offset) = 1.2;
+    };
+    class rhs_weap_grad;
+    class rhs_weap_bm21: rhs_weap_grad {
+        EGVAR(overpressure,offset) = 0;
+    };
+    class rhs_weap_d81;
+    class rhs_weap_2a70: rhs_weap_d81 { // "Low pressure" 100mm cannon
+        EGVAR(overpressure,range) = 15;
+        EGVAR(overpressure,damage) = 0.5;
+    };
+    class cannon_120mm;
+    class rhs_weap_2a28_base: cannon_120mm { // "Low pressure"
+        EGVAR(overpressure,range) = 15;
+        EGVAR(overpressure,damage) = 0.5;
+    };
+    class mortar_82mm;
+    class rhs_weap_2b14: mortar_82mm {
+        EGVAR(overpressure,offset) = 0.4;
     };
 
     class rhs_zsh7a;
@@ -121,19 +146,10 @@ class CfgWeapons {
         ACE_Protection = 1;
     };
 
-    class rhs_weap_d81;
-    class rhs_weap_2a70: rhs_weap_d81 { // "Low pressure" 100mm cannon
-        EGVAR(overpressure,range) = 15;
-        EGVAR(overpressure,damage) = 0.5;
-    };
-    class cannon_120mm;
-    class rhs_weap_2a28_base: cannon_120mm { // "Low pressure"
-        EGVAR(overpressure,range) = 15;
-        EGVAR(overpressure,damage) = 0.5;
-    };
-
     class rhs_uniform_flora;
     class rhs_uniform_df15: rhs_uniform_flora {
         ACE_GForceCoef = 0.8;
+        ace_fire_protection = 0.5;
     };
+    //rhs_uniform_df15_tan inherits from rhs_uniform_df15
 };

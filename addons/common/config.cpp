@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
-        units[] = {"ACE_Box_Misc", "ACE_bananaItem", "ACE_Flag_Black", "ACE_Flag_White"};
+        units[] = {"ACE_Box_Misc", "ACE_bananaItem", "ACE_Flag_Black", "ACE_Flag_White", "ACE_ModuleLSDVehicles"};
         weapons[] = {"ACE_ItemCore", "ACE_FakePrimaryWeapon", "ACE_Banana"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"ace_main","ace_modules"};
@@ -75,3 +75,5 @@ class ACE_Tests {
     mapConfigs = QPATHTOF(dev\test_mapConfigs.sqf);
     cfgPatches = QPATHTOF(dev\test_cfgPatches.sqf);
 };
+
+#include "ACE_ExtensionsHashes.hpp"

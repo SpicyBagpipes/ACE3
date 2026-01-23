@@ -41,9 +41,11 @@ if ((_weaponInfo isEqualTo []) && {_magazineClass != ""}) then {
     );
 
     // Get Muzzle Velocity
-    private _muzzleVelocity = if (_barrelLength > 0 && _useAB) then {
-        [_barrelLength, _muzzleVelocityTable, _barrelLengthTable, 0] call EFUNC(advanced_ballistics,calculateBarrelLengthVelocityShift)
-    } else {
+    private _muzzleVelocity = 0;
+    if (_barrelLength > 0 && _useAB) then {
+        _muzzleVelocity = [_barrelLength, _muzzleVelocityTable, _barrelLengthTable, 0] call EFUNC(advanced_ballistics,calculateBarrelLengthVelocityShift)
+    };
+    if (_muzzleVelocity == 0) then {
         private _initSpeed = getNumber (configFile >> "CfgMagazines" >> _magazineClass >> "initSpeed");
         private _initSpeedCoef = getNumber (configFile >> "CfgWeapons" >> _weaponClass >> "initSpeed");
         if (_initSpeedCoef < 0) then {
@@ -52,11 +54,15 @@ if ((_weaponInfo isEqualTo []) && {_magazineClass != ""}) then {
         if (_initSpeedCoef > 0) then {
             _initSpeed = _initSpeedCoef;
         };
-        _initSpeed
+        _muzzleVelocity = _initSpeed
     };
 
     // Scope Base Angle
-    private _scopeBaseAngle = parseNumber (("ace" callExtension ["ballistics:zero_vanilla", [_zeroRange, _muzzleVelocity, _airFriction, _boreHeight]]) select 0);
+    private _scopeBaseAngle = if ((getText (configFile >> "CfgAmmo" >> _ammoClass >> "simulation")) != "shotshell") then {
+        parseNumber (("ace" callExtension ["ballistics:zero_vanilla", [_zeroRange, _muzzleVelocity, _airFriction, _boreHeight]]) select 0)
+    } else {
+        0 // shotshell will not have any vanilla zeroing applied, 0 is a reasonable default for now
+    };
 
     _weaponInfo = [_scopeBaseAngle,_boreHeight,_airFriction,_muzzleVelocity,_bc,_dragModel,_atmosphereModel,_barrelTwist,_twistDirection,_caliber,_bulletLength,_bulletMass];
     GVAR(data) set [_key, _weaponInfo];

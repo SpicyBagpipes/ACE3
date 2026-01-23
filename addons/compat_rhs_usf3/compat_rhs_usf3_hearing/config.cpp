@@ -3,7 +3,7 @@
 
 class CfgPatches {
     class SUBADDON {
-        addonRootClass = QUOTE(COMPONENT);
+        addonRootClass = QUOTE(ADDON);
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
@@ -16,4 +16,5 @@ class CfgPatches {
     };
 };
 
+#include "CfgMagazines.hpp"
 #include "CfgWeapons.hpp"

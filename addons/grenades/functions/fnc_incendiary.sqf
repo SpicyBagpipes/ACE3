@@ -5,7 +5,7 @@
  *
  * Arguments:
  * 0: Incendiary grenade <OBJECT>
- * 1: Incendiary lifetime <OBJECT>
+ * 1: Incendiary lifetime <NUMBER>
  * 2: Instigator's side <SIDE>
  *
  * Return Value:
@@ -170,7 +170,7 @@ if (isServer) then {
 };
 
 [{
-    {deleteVehicle _x} forEach _this;
+    deleteVehicle _this;
 }, [_fire, _smoke, _light, _sound], _timeToLive] call CBA_fnc_waitAndExecute;
 
 // Damage

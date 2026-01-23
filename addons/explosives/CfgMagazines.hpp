@@ -3,7 +3,7 @@ class CfgMagazines {
     class ATMine_Range_Mag: CA_Magazine {
         useAction = 0;
         GVAR(placeable) = 1;
-        GVAR(setupObject) = "ACE_Explosives_Place_ATMine"; // CfgVehicle class for setup object
+        GVAR(setupObject) = "ACE_Explosives_Place_ATMine"; // CfgVehicles class for setup object
         class ACE_Triggers {
             SupportedTriggers[] = {"PressurePlate"};
             class PressurePlate {
@@ -29,11 +29,15 @@ class CfgMagazines {
             };
         };
     };
+    class ACE_APERSMine_ToePopper_Mag: APERSMine_Range_Mag {
+        displayName = CSTRING(apersToePopper);
+        ammo = "ACE_APERSMine_ToePopper_Ammo";
+    };
     class APERSTripMine_Wire_Mag: ATMine_Range_Mag {
         GVAR(setupObject) = "ACE_Explosives_Place_APERSTripwireMine";
         class ACE_Triggers {
             SupportedTriggers[] = {"Tripwire"};
-            class Tripwire;
+            class Tripwire {};
         };
     };
     class ACE_FlareTripMine_Mag: APERSTripMine_Wire_Mag {
@@ -43,6 +47,19 @@ class CfgMagazines {
         displayName = CSTRING(TripFlare_Name);
         descriptionShort = CSTRING(TripFlare_Description);
         class Library {libTextDesc = CSTRING(TripFlare_Description);};
+        class ACE_Triggers {
+            SupportedTriggers[] = {"Tripwire", "Tripwire_Airburst"};
+            class Tripwire {};
+            class Tripwire_Airburst {};
+        };
+    };
+    class ACE_FlareTripMine_Mag_Red: ACE_FlareTripMine_Mag {
+        ammo = "ACE_FlareTripMine_Wire_Ammo_Red";
+        displayName = CSTRING(TripFlare_Name_Red);
+    };
+    class ACE_FlareTripMine_Mag_Green: ACE_FlareTripMine_Mag {
+        ammo = "ACE_FlareTripMine_Wire_Ammo_Green";
+        displayName = CSTRING(TripFlare_Name_Green);
     };
 
     class ClaymoreDirectionalMine_Remote_Mag: CA_Magazine {
@@ -123,7 +140,7 @@ class CfgMagazines {
     };
     class IEDLandBig_Remote_Mag: IEDUrbanBig_Remote_Mag {
         GVAR(setupObject) = "ACE_Explosives_Place_IEDLandBig";
-        picture = "\A3\Weapons_F\Data\UI\gear_mine_AT_CA.paa";  // Fix inconsistent picture
+        picture = "\A3\Weapons_F\Data\UI\gear_mine_AT_CA.paa"; // Fix inconsistent picture
         class ACE_Triggers: ACE_Triggers {
             class Command: Command {
                 ammo = "ACE_IEDLandBig_Command_Ammo";
@@ -137,7 +154,7 @@ class CfgMagazines {
     };
     class IEDUrbanSmall_Remote_Mag: DemoCharge_Remote_Mag {
         GVAR(setupObject) = "ACE_Explosives_Place_IEDUrbanSmall";
-        picture = "\A3\Weapons_F\Data\UI\gear_mine_AP_bouncing_CA.paa";  // Fix inconsistent picture
+        picture = "\A3\Weapons_F\Data\UI\gear_mine_AP_bouncing_CA.paa"; // Fix inconsistent picture
         class ACE_Triggers {
             SupportedTriggers[] = {"Command", "DeadmanSwitch", "Cellphone", "PressurePlate"};
             class Command {
